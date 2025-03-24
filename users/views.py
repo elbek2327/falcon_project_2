@@ -114,3 +114,6 @@ class LogoutView(RedirectView):
 def github_login_redirect(request):
     """Redirect to GitHub login using Django-Allauth."""
     return redirect('/accounts/github/login/')
+
+def google_login_redirect(request):
+    return redirect('/accounts/login/')

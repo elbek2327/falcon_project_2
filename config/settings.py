@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -119,13 +120,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',# Keep this if you want the default backend
+    'allauth.account.auth_backends.AuthenticationBackend',  # Keep this if you want the default backend
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': ['user'],
         'AUTH_PARAMS': {'access_type': 'online'},
+    },
+    'google': {
+        'APP': {
+            'client_id': os.getenv("GOOGLE_CLIENT_ID"),
+            'secret': os.getenv("GOOGLE_CLIENT_SECRET"),
+            'key': ''
+        }
     }
 }
 
@@ -151,6 +159,7 @@ SOCIALACCOUNT_PROVIDERS['github']['APP'] = {
 }
 
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
@@ -162,7 +171,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-import os
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
@@ -179,13 +188,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'shop/media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 JAZZMIN_SETTINGS = {
-    "site_title": "Project Falcon", #title
-    "site_header": "Admin", #header
-    "site_brand":"Admin menu",
-    "copyright":"Everything is under control",#copyright
-    "topmenu_links" : [
+    "site_title": "Project Falcon",  # title
+    "site_header": "Admin",  # header
+    "site_brand": "Admin menu",
+    "copyright": "Everything is under control",  # copyright
+    "topmenu_links": [
         {
-            "app":"shop", #top dagi category sifat narsa
+            "app": "shop",  # top dagi category sifat narsa
         }
     ],
     "show_sidebar": True,
@@ -193,9 +202,9 @@ JAZZMIN_SETTINGS = {
     "navigation_expanded": True,
     # "language_chooser":True
     "user_avatar": None,
-    "site_logo":None, #logo uchun hozircha yoq logo
-    "site_icon":"shop/images/logo.png", #site iconim
-    "welcome_sign":"Welcome to admin menu",
+    "site_logo": None,  # logo uchun hozircha yoq logo
+    "site_icon": "shop/images/logo.png",  # site iconim
+    "welcome_sign": "Welcome to admin menu",
     "search_model": ["auth.User"],
     "show_ui_builder": True,
 }

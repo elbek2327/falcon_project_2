@@ -11,4 +11,5 @@ urlpatterns = [
     path('register/', RegisterView.as_view(), name='register_page'),
     path('logout/', LogoutView.as_view(), name='logout_page'),
     path('login-via-github/', views.github_login_redirect, name='github_login'),
+    path('login-via-google/', views.google_login_redirect, name='google_login'),
 ]
