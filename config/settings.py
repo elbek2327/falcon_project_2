@@ -35,8 +35,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'jazzmin',
+    'social_django',
     'django.contrib.admin',
-    'django.contrib.sites',  # Required by allauth
+    'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -120,13 +121,19 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',  # Keep this if you want the default backend
+    'allauth.account.auth_backends.AuthenticationBackend',
+    'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.github.GithubOAuth2',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
     'github': {
         'SCOPE': ['user'],
-        'AUTH_PARAMS': {'access_type': 'online'},
+        'APP': {
+            'client_id': os.getenv("GITHUB_CLIENT_ID"),
+            'secret': os.getenv("GITHUB_CLIENT_SECRET"),
+            'key': '',
+        }
     },
     'google': {
         'APP': {
@@ -142,21 +149,38 @@ SOCIALACCOUNT_AUTO_SIGNUP = True
 SOCIALACCOUNT_EMAIL_REQUIRED = True
 SOCIALACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
-ACCOUNT_AUTHENTICATION_METHOD = "email"
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = "none"
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+
+# ACCOUNT_LOGIN_METHOD = ['email']
+# ACCOUNT_SIGNUP_FIELDS = ['email']
+# # ACCOUNT_AUTHENTICATION_METHOD = "email"
+# # ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_EMAIL_VERIFICATION = "none"
+# ACCOUNT_UNIQUE_EMAIL = True
+# # ACCOUNT_USERNAME_REQUIRED = False
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
 
 LOGIN_REDIRECT_URL = "shop:index"
 LOGOUT_REDIRECT_URL = "shop:index"
 
-SOCIALACCOUNT_PROVIDERS['github']['APP'] = {
-    'client_id': os.getenv("GITHUB_CLIENT_ID"),
-    'secret': os.getenv("GITHUB_CLIENT_SECRET"),
-    'key': '',
-}
+ACCOUNT_LOGIN_METHODS = ['email']
+ACCOUNT_SIGNUP_FIELDS = ['email*']
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("GOOGLE_CLIENT_ID")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv("GOOGLE_CLIENT_SECRET")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = ["email", "profile"]
+SOCIAL_AUTH_GOOGLE_OAUTH2_REDIRECT_URI = "http://127.0.0.1:8000/auth/callback/"
+
+SOCIAL_AUTH_GITHUB_KEY = os.getenv("GITHUB_CLIENT_ID")
+SOCIAL_AUTH_GITHUB_SECRET = os.getenv("GITHUB_CLIENT_SECRET")
+
+# # Redirect users after login/logout
+# LOGIN_REDIRECT_URL = 'shop:index'
+# LOGOUT_REDIRECT_URL = 'shop:index'
+
+# Optional: Define scopes (for email access)
+SOCIAL_AUTH_GITHUB_SCOPE = ['user:email']
 
 
 

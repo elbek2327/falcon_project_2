@@ -117,3 +117,6 @@ def github_login_redirect(request):
 
 def google_login_redirect(request):
     return redirect('/accounts/login/')
+
+
+
