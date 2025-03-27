@@ -1,8 +1,10 @@
 # from socket import send_fds
+# import uuid
+import random
 
 from django.db import models
 from decimal import Decimal
-from phonenumber_field.modelfields import PhoneNumber, PhoneNumberField
+from phonenumber_field.modelfields import PhoneNumberField
 
 # Create your models here.
 
@@ -60,8 +62,23 @@ class Customers(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     image = models.ImageField(upload_to='customer/images/', null=True, blank=True)
     description = models.TextField(null=True, blank=True)
+    vat_number = models.CharField(max_length=15, editable=False)
+
+    def save(self, *args, **kwargs):
+        if not self.vat_number:
+            self.vat_number = self.generate_unique_vat()
+        super().save(*args, **kwargs)
+
+    def generate_unique_vat(self):
+        """10 lik unique vat generator"""
+        while True:
+            vat = str(random.randint(1000000000, 9999999999))
+            if not Customers.objects.filter(vat_number=vat).exists():
+                return vat
+
+
 
     def __str__(self):
-        return f" Name - {self.name} email - {self.email}"
+        return f" Name - {self.name} email - {self.email} - {self.vat_number}"
     class Meta:
         verbose_name_plural = 'Customers'

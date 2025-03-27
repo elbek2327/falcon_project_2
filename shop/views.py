@@ -89,7 +89,7 @@ class CustomerCreateView(CreateView):
     model = Customers
     form_class = CustomersModelForm
     template_name = 'shop/customer_create.html'
-    success_url = reverse_lazy('e_customers')
+    success_url = reverse_lazy('shop:e_customers')
 
 
 
@@ -98,10 +98,10 @@ class CustomerUpdateView(UpdateView):
     model = Customers
     form_class = CustomersModelForm
     template_name = 'shop/customer_update.html'
-    success_url = reverse_lazy('e_customers')
+    success_url = reverse_lazy('shop:e_customers')
 
 class CustomerDeleteView(DeleteView):
     model = Customers
     template_name = 'shop/customers.html'
-    success_url = reverse_lazy('e_customers')
+    success_url = reverse_lazy('shop:e_customers')
 

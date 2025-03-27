@@ -23,7 +23,7 @@ class ImagesAdmin(admin.ModelAdmin):
 
 @admin.register(Customers)
 class CustomersAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'email', 'phone_number', 'address', 'created_at','customer_image')
+    list_display = ('id', 'name', 'email', 'phone_number', 'address', 'created_at','customer_image', 'vat_number')
 
     def customer_image(self, obj):
         if obj.image:
