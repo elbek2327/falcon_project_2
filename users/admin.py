@@ -8,4 +8,4 @@ from users.models import CustomUser
 # Register your models here.
 @admin.register(CustomUser)
 class CustomUserAdmin(admin.ModelAdmin):
-    list_display = ('id', 'username', 'email', 'phone_number', 'password')
+    list_display = ('id', 'username', 'email', 'phone_number', 'password', 'is_staff')

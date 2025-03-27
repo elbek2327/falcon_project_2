@@ -29,6 +29,7 @@ class Product(models.Model):
     quantity = models.PositiveIntegerField(default=1)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products', null=True, blank=True)
     rating = models.FloatField(null=True, blank=True)
+
     @property
     def discounted_price(self):
         if self.discount > 0:

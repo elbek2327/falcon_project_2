@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+# from django.contrib.auth import get_user_model
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from django.core.mail import send_mail
@@ -7,15 +7,24 @@ from django.db import models
 
 from shop.models import Customers
 from users.models import CustomUser
+# import json
+
+
 
 # Customer create bolganida terminalda xabar beradi
 @receiver(post_save, sender=Customers)
 def create_customer(sender, instance, created, **kwargs):
+    users = CustomUser.objects.filter(is_superuser=True) #adminga yuborish uchun
     if created:
         print("************===**********")
         print(f"The user {instance.name}'s vat number: {instance.vat_number} successfully created!")
         print("************===**********")
-
+        send_mail(
+            f"Hello, there",
+            f'Customer {instance.name} is now created!. \n{instance.vat_number} is vat number of customer' ,
+            'zubaydullayev1609@gmail.com',
+            [user.email for user in users],
+        )
 
 
 # bu modelda ozgarish bolsa bildiradi
@@ -28,6 +37,11 @@ def notify_model_changes_admin(sender, instance, **kwargs):
 
     superusers = CustomUser.objects.filter(is_superuser=True) #adminlarni bilish uchun kerak data olinadi filter qilinib
     admin_emails = [admin.email for admin in superusers if admin.email] #bu admin emaillar message send qilish uchn kerak
+
+    if not admin_emails:
+        return #none
+
+
 
     try:
         old_instance = sender.objects.get(pk=instance.pk)
@@ -59,3 +73,19 @@ def notify_model_changes_admin(sender, instance, **kwargs):
     # if user is is_superuser it will send emails to them ularga yuboradi
     if admin_emails:
         send_mail(subject, full_message, settings.DEFAULT_FROM_EMAIL, admin_emails)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
