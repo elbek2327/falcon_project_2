@@ -1,13 +1,11 @@
 from django import forms
 
-from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.hashers import make_password
 from django.core.exceptions import ValidationError
 from django.forms import PasswordInput
 
+from phonenumber_field.formfields import PhoneNumberField
 
-
-from users.apps import UsersConfig
 from users.models import CustomUser
 
 
@@ -20,7 +18,7 @@ class RegisterForm(forms.ModelForm):
     email = forms.EmailField(required=True)
     password = forms.CharField(widget=PasswordInput)
     confirm_password = forms.CharField(widget=PasswordInput)
-
+    phone_number = PhoneNumberField(region='UZ', required=False)
     class Meta:
         model = CustomUser
         fields = ['name', 'email', 'password']
@@ -30,12 +28,14 @@ class RegisterForm(forms.ModelForm):
         password = cleaned_data.get("password")
         confirm_password = cleaned_data.get("confirm_password")
         email = cleaned_data.get("email")
+        email_check = CustomUser.objects.filter(email=email)
+        if email_check.exists():
+            raise forms.ValidationError('This Email already exists')
 
+        if len(password) < 6:
+            raise forms.ValidationError('Password must be at least 6 characters')
         if password != confirm_password:
             raise ValidationError("Passwords do not match.")
-
-        if CustomUser.objects.filter(email=email).exists():
-            raise ValidationError("A user with this email already exists.")
 
         cleaned_data["password"] = make_password(password)
         return cleaned_data

@@ -1,0 +1,6 @@
+<p>Hi {{ user.first_name }},</p>
+<p>Please click the link below to verify your email:</p>
+<p><a href="http://{{ domain }}{% url 'users:verify_email_confirm' uidb64=uid token=token %}">
+    Verify Email
+</a></p>
+<p>If you did not create an account, please ignore this email.</p>

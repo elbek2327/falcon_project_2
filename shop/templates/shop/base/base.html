@@ -2140,10 +2140,11 @@
                                 <a class="nav-link pe-0" id="navbarDropdownUser" href="#"
                                    role="button" data-bs-toggle="dropdown" aria-haspopup="true"
                                    aria-expanded="false">
+{#                                    This is image #}
                                     <div class="avatar avatar-xl">
                                         <img class="rounded-circle"
-                                             src="{{ user.image }}"
-                                             alt=""/>
+                                             src="{% static 'shop/assets/img/user_icon.png' %}"
+                                             alt="{{ user.name }}"/>
                                     </div>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="navbarDropdownUser">
@@ -2165,7 +2166,7 @@
                                    aria-expanded="false">
                                     <div class="avatar avatar-xl">
                                         <img class="rounded-circle"
-                                             src="{{ user.image }}"
+                                             src="{% static 'shop/assets/img/user_icon.png' %}"
                                              alt=""/>
                                     </div>
                                 </a>

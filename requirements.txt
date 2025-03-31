@@ -1,0 +1,249 @@
+Django~=5.1.7
+django-phonenumber-field~=8.0.0
+python-dotenv~=1.0.1
+
+
+
+When something happens
+(.venv) PS D:\Ongoing projects\Django\something> pip install six
+Fatal error in launcher: Unable to create process using '"D:\Ongoing projects\something\.venv\Scripts\python.exe"  "D:\Ongoing projects\Django\something\.venv\Scripts\pip.exe" install six': The system cannot find the file specified.
+
+(.venv) PS D:\Ongoing projects\Django\something> pip freeze > requirements.txt
+Fatal error in launcher: Unable to create process using '"D:\Ongoing projects\something\.venv\Scripts\python.exe"  "D:\Ongoing projects\Django\something\.venv\Scripts\pip.exe" freeze': The system cannot find the file specified.
+
+(.venv) PS D:\Ongoing projects\Django\something> pip freeze  requirements.txt
+Fatal error in launcher: Unable to create process using '"D:\Ongoing projects\something\.venv\Scripts\python.exe"  "D:\Ongoing projects\Django\something\.venv\Scripts\pip.exe" freeze requirements.txt': The system cannot find the file specified.
+
+(.venv) PS D:\Ongoing projects\Django\something> rmdir /s .\.venv\
+Remove-Item : A positional parameter cannot be found that accepts argument '.\.venv\'.
+At line:1 char:1
++ rmdir /s .\.venv\
++ ~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+(.venv) PS D:\Ongoing projects\Django\something> rmdir /s .venv
+Remove-Item : A positional parameter cannot be found that accepts argument '.venv'.
+At line:1 char:1
++ rmdir /s .venv
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+(.venv) PS D:\Ongoing projects\Django\something> deactivate
+PS D:\Ongoing projects\Django\something> rmdir /s .venv
+Remove-Item : A positional parameter cannot be found that accepts argument '.venv'.
+At line:1 char:1
++ rmdir /s .venv
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+PS D:\Ongoing projects\Django\something> rmdir /s .venv
+Remove-Item : A positional parameter cannot be found that accepts argument '.venv'.
+At line:1 char:1
++ rmdir /s .venv
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+PS D:\Ongoing projects\Django\something> rmdir /s .venv;
+Remove-Item : A positional parameter cannot be found that accepts argument '.venv'.
+At line:1 char:1
++ rmdir /s .venv;
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+PS D:\Ongoing projects\Django\something> py -m venv .venv
+PS D:\Ongoing projects\Django\something> .\.venv\Scripts\activate
+(.venv) PS D:\Ongoing projects\Django\something> pip install -r .\requirements.txt
+Collecting Django~=5.1.7 (from -r .\requirements.txt (line 1))
+  Using cached Django-5.1.7-py3-none-any.whl.metadata (4.1 kB)
+Collecting django-phonenumber-field~=8.0.0 (from -r .\requirements.txt (line 2))
+  Using cached django_phonenumber_field-8.0.0-py3-none-any.whl.metadata (3.1 kB)
+Collecting python-dotenv~=1.0.1 (from -r .\requirements.txt (line 3))
+  Using cached python_dotenv-1.0.1-py3-none-any.whl.metadata (23 kB)
+Collecting asgiref<4,>=3.8.1 (from Django~=5.1.7->-r .\requirements.txt (line 1))
+  Using cached asgiref-3.8.1-py3-none-any.whl.metadata (9.3 kB)
+Collecting sqlparse>=0.3.1 (from Django~=5.1.7->-r .\requirements.txt (line 1))
+  Using cached sqlparse-0.5.3-py3-none-any.whl.metadata (3.9 kB)
+Collecting tzdata (from Django~=5.1.7->-r .\requirements.txt (line 1))
+  Downloading tzdata-2025.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Using cached Django-5.1.7-py3-none-any.whl (8.3 MB)
+Using cached django_phonenumber_field-8.0.0-py3-none-any.whl (66 kB)
+Using cached python_dotenv-1.0.1-py3-none-any.whl (19 kB)
+Using cached asgiref-3.8.1-py3-none-any.whl (23 kB)
+Using cached sqlparse-0.5.3-py3-none-any.whl (44 kB)
+Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+Installing collected packages: tzdata, sqlparse, python-dotenv, asgiref, Django, django-phonenumber-field
+Successfully installed Django-5.1.7 asgiref-3.8.1 django-phonenumber-field-8.0.0 python-dotenv-1.0.1 sqlparse-0.5.3 tzdata-2025.2
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install six
+Collecting six
+  Using cached six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Using cached six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: six
+Successfully installed six-1.17.0
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install jazzmin
+ERROR: Could not find a version that satisfies the requirement jazzmin (from versions: none)
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+ERROR: No matching distribution found for jazzmin
+(.venv) PS D:\Ongoing projects\Django\something> pip install -U django-jazzmin
+Collecting django-jazzmin
+  Using cached django_jazzmin-3.0.1-py3-none-any.whl.metadata (6.2 kB)
+Requirement already satisfied: django>=4.2 in d:\ongoing projects\django\something\.venv\lib\site-packages (from django-jazzmin) (5.1.7)
+Requirement already satisfied: asgiref<4,>=3.8.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from django>=4.2->django-jazzmin) (3.8.1)
+Requirement already satisfied: sqlparse>=0.3.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from django>=4.2->django-jazzmin) (0.5.3)
+Requirement already satisfied: tzdata in d:\ongoing projects\django\something\.venv\lib\site-packages (from django>=4.2->django-jazzmin) (2025.2)
+Using cached django_jazzmin-3.0.1-py3-none-any.whl (2.1 MB)
+Installing collected packages: django-jazzmin
+Successfully installed django-jazzmin-3.0.1
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install social-auth-app-django
+Collecting social-auth-app-django
+  Using cached social_auth_app_django-5.4.3-py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: Django>=3.2 in d:\ongoing projects\django\something\.venv\lib\site-packages (from social-auth-app-django) (5.1.7)
+Collecting social-auth-core~=4.4 (from social-auth-app-django)
+  Using cached social_auth_core-4.5.6-py3-none-any.whl.metadata (3.5 kB)
+Requirement already satisfied: asgiref<4,>=3.8.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=3.2->social-auth-app-django) (3.8.1)
+Requirement already satisfied: sqlparse>=0.3.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=3.2->social-auth-app-django) (0.5.3)
+Requirement already satisfied: tzdata in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=3.2->social-auth-app-django) (2025.2)
+Collecting PyJWT>=2.7.0 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached PyJWT-2.10.1-py3-none-any.whl.metadata (4.0 kB)
+Collecting cryptography>=1.4 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached cryptography-44.0.2-cp39-abi3-win_amd64.whl.metadata (5.7 kB)
+Collecting defusedxml>=0.5.0 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting oauthlib>=1.0.3 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached oauthlib-3.2.2-py3-none-any.whl.metadata (7.5 kB)
+Collecting python3-openid>=3.0.10 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached python3_openid-3.2.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting requests-oauthlib>=0.6.1 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached requests_oauthlib-2.0.0-py2.py3-none-any.whl.metadata (11 kB)
+Collecting requests>=2.9.1 (from social-auth-core~=4.4->social-auth-app-django)
+  Using cached requests-2.32.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting cffi>=1.12 (from cryptography>=1.4->social-auth-core~=4.4->social-auth-app-django)
+  Using cached cffi-1.17.1-cp313-cp313-win_amd64.whl.metadata (1.6 kB)
+Collecting charset-normalizer<4,>=2 (from requests>=2.9.1->social-auth-core~=4.4->social-auth-app-django)
+  Using cached charset_normalizer-3.4.1-cp313-cp313-win_amd64.whl.metadata (36 kB)
+Collecting idna<4,>=2.5 (from requests>=2.9.1->social-auth-core~=4.4->social-auth-app-django)
+  Using cached idna-3.10-py3-none-any.whl.metadata (10 kB)
+Collecting urllib3<3,>=1.21.1 (from requests>=2.9.1->social-auth-core~=4.4->social-auth-app-django)
+  Using cached urllib3-2.3.0-py3-none-any.whl.metadata (6.5 kB)
+Collecting certifi>=2017.4.17 (from requests>=2.9.1->social-auth-core~=4.4->social-auth-app-django)
+  Using cached certifi-2025.1.31-py3-none-any.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=1.12->cryptography>=1.4->social-auth-core~=4.4->social-auth-app-django)
+  Using cached pycparser-2.22-py3-none-any.whl.metadata (943 bytes)
+Using cached social_auth_app_django-5.4.3-py3-none-any.whl (26 kB)
+Using cached social_auth_core-4.5.6-py3-none-any.whl (415 kB)
+Using cached cryptography-44.0.2-cp39-abi3-win_amd64.whl (3.2 MB)
+Using cached defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Using cached oauthlib-3.2.2-py3-none-any.whl (151 kB)
+Using cached PyJWT-2.10.1-py3-none-any.whl (22 kB)
+Using cached python3_openid-3.2.0-py3-none-any.whl (133 kB)
+Using cached requests-2.32.3-py3-none-any.whl (64 kB)
+Using cached requests_oauthlib-2.0.0-py2.py3-none-any.whl (24 kB)
+Using cached certifi-2025.1.31-py3-none-any.whl (166 kB)
+Using cached cffi-1.17.1-cp313-cp313-win_amd64.whl (182 kB)
+Using cached charset_normalizer-3.4.1-cp313-cp313-win_amd64.whl (102 kB)
+Using cached idna-3.10-py3-none-any.whl (70 kB)
+Using cached urllib3-2.3.0-py3-none-any.whl (128 kB)
+Using cached pycparser-2.22-py3-none-any.whl (117 kB)
+Installing collected packages: urllib3, PyJWT, pycparser, oauthlib, idna, defusedxml, charset-normalizer, certifi, requests, python3-openid, cffi, requests-oauthlib, cryptography, social-auth-core, social-auth-app-django
+Successfully installed PyJWT-2.10.1 certifi-2025.1.31 cffi-1.17.1 charset-normalizer-3.4.1 cryptography-44.0.2 defusedxml-0.7.1 idna-3.10 oauthlib-3.2.2 pycparser-2.22 python3-openid-3.2.0 requests-2.32.3 requests-oauthlib-2.0.0 social-auth-app-django-5.4.3 social-auth-core-4.5.6 urllib3-2.3.0
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install django-allauth
+Collecting django-allauth
+  Downloading django_allauth-65.6.0.tar.gz (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 2.7 MB/s eta 0:00:00
+  Installing build dependencies ... done
+  Getting requirements to build wheel ... done
+  Preparing metadata (pyproject.toml) ... done
+Requirement already satisfied: Django>=4.2.16 in d:\ongoing projects\django\something\.venv\lib\site-packages (from django-allauth) (5.1.7)
+Requirement already satisfied: asgiref>=3.8.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from django-allauth) (3.8.1)
+Requirement already satisfied: sqlparse>=0.3.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=4.2.16->django-allauth) (0.5.3)
+Requirement already satisfied: tzdata in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=4.2.16->django-allauth) (2025.2)
+Building wheels for collected packages: django-allauth
+  Building wheel for django-allauth (pyproject.toml) ... done
+  Created wheel for django-allauth: filename=django_allauth-65.6.0-py3-none-any.whl size=1773011 sha256=afb373b48aba8b2ec378cd266b2b9a639da6f24b061e68c5c1f5e4c1fa225140
+  Stored in directory: c:\users\windows 11\appdata\local\pip\cache\wheels\06\93\f2\9da74a9ea11bd823a1b5ee4c902330ec55d3a018cdc0067f8e
+Successfully built django-allauth
+Installing collected packages: django-allauth
+Successfully installed django-allauth-65.6.0
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install import-export
+Collecting import-export
+  Using cached import_export-0.3.1-py2.py3-none-any.whl
+Installing collected packages: import-export
+Successfully installed import-export-0.3.1
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install django-import-export
+Collecting django-import-export
+  Using cached django_import_export-4.3.7-py3-none-any.whl.metadata (12 kB)
+Collecting diff-match-patch==20241021 (from django-import-export)
+  Using cached diff_match_patch-20241021-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: Django>=4.2 in d:\ongoing projects\django\something\.venv\lib\site-packages (from django-import-export) (5.1.7)
+Collecting tablib>=3.7.0 (from django-import-export)
+  Using cached tablib-3.8.0-py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: asgiref<4,>=3.8.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=4.2->django-import-export) (3.8.1)
+Requirement already satisfied: sqlparse>=0.3.1 in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=4.2->django-import-export) (0.5.3)
+Requirement already satisfied: tzdata in d:\ongoing projects\django\something\.venv\lib\site-packages (from Django>=4.2->django-import-export) (2025.2)
+Using cached django_import_export-4.3.7-py3-none-any.whl (142 kB)
+Using cached diff_match_patch-20241021-py3-none-any.whl (43 kB)
+Using cached tablib-3.8.0-py3-none-any.whl (47 kB)
+Installing collected packages: tablib, diff-match-patch, django-import-export
+Successfully installed diff-match-patch-20241021 django-import-export-4.3.7 tablib-3.8.0
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install pscopg2
+ERROR: Could not find a version that satisfies the requirement pscopg2 (from versions: none)
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+ERROR: No matching distribution found for pscopg2
+(.venv) PS D:\Ongoing projects\Django\something> pip install psycopg2
+Collecting psycopg2
+  Using cached psycopg2-2.9.10-cp313-cp313-win_amd64.whl.metadata (4.8 kB)
+Using cached psycopg2-2.9.10-cp313-cp313-win_amd64.whl (2.6 MB)
+Installing collected packages: psycopg2
+Successfully installed psycopg2-2.9.10
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install phonenumbers
+Collecting phonenumbers
+  Downloading phonenumbers-9.0.2-py2.py3-none-any.whl.metadata (11 kB)
+Downloading phonenumbers-9.0.2-py2.py3-none-any.whl (2.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.6/2.6 MB 5.1 MB/s eta 0:00:00
+Installing collected packages: phonenumbers
+Successfully installed phonenumbers-9.0.2
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something> pip install Pillow
+Collecting Pillow
+  Using cached pillow-11.1.0-cp313-cp313-win_amd64.whl.metadata (9.3 kB)
+Using cached pillow-11.1.0-cp313-cp313-win_amd64.whl (2.6 MB)
+Installing collected packages: Pillow
+Successfully installed Pillow-11.1.0
+
+[notice] A new release of pip is available: 24.2 -> 25.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+(.venv) PS D:\Ongoing projects\Django\something>

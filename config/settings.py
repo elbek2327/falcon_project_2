@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
     'users.apps.UsersConfig',
     'import_export',
-    'phonenumber_field',
+    'phonenumber_field'
 ]
 
 MIDDLEWARE = [

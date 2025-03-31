@@ -1,0 +1,12 @@
+<html lang="uz">
+<body>
+    <h1>Emailni tasdiqlashingiz kerak</h1>
+    <p>Tasdiqlash havola sizning elektron pochta manzilingizga yuborildi: {{ user.email }}</p>
+    <p>Iltimos, hisobingizni tasdiqlash uchun havolani bosing.</p>
+    <form method="post">
+        {% csrf_token %}
+        <input class="btn btn-primary" type="submit" value="Tasdiqlash">
+    </form>
+    <p>Agar tasdiqlash havola kelmagan bo'lsa, <a href = "{% url 'users:verify_email' %}"> qayta yuboring</a></p>
+</body>
+</html>
