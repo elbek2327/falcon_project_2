@@ -31,6 +31,7 @@ urlpatterns = [
     path('customer_update/<int:pk>/', CustomerUpdateView.as_view(), name='customer_update'),
     path('customer_delete/<int:pk>/', CustomerDeleteView.as_view(), name='customer_delete'),
     path('product_list/', views.product_list_html, name='product_list_html'),
+    path('export-data/',views.export_data,name='export_data'),
 
 
 
