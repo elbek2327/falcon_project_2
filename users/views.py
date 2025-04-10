@@ -21,10 +21,10 @@ from django.contrib import messages
         
 
 class LoginView(FormView):
+    success_url = reverse_lazy('shop:index')
     template_name = 'users/simple/login.html'
     form_class = LoginForm
-    success_url = reverse_lazy('shop:index')
-
+    users = CustomUser.objects.all()
     def form_valid(self, form):
         user = authenticate(self.request, email=form.cleaned_data['email'], password=form.cleaned_data['password'])
         if user is not None:
@@ -69,7 +69,7 @@ def register_view(request):
             user.is_active = True
             new_user = authenticate(email=user.email, password=password)
             login(request, new_user)
-
+            user.save()
             if next_thing:
                 return redirect(next_thing)
             else:
